@@ -323,10 +323,10 @@ export function BuilderShell() {
 
           <div className="toolbar-right">
             <button className="code-button" title="Code panel coming next">
-              <Code2 size={15} /> Code
+              <Code2 size={15} /> Code · soon
             </button>
             <button className="publish-button" title="Publishing flow coming next">
-              Publish <ExternalLink size={14} />
+              Publish · soon <ExternalLink size={14} />
             </button>
           </div>
         </header>
