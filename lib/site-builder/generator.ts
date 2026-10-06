@@ -194,11 +194,14 @@ const sections: SiteSection[] = ["features", "stats", "testimonials", "pricing",
 
 export function generateSiteSpec(prompt: string, current?: SiteSpec | null): SiteSpec {
   const lower = prompt.toLowerCase();
-  const category = current ? getCategory(`${current.category} ${prompt}`) : getCategory(prompt);
+  const startsFresh = !current || /rebuild|new website|start over|create a|build a/.test(lower);
+  const category = startsFresh
+    ? getCategory(prompt)
+    : getCategory(`${current.category} ${prompt}`);
   const spec = current ? structuredClone(current) : defaultSpec(category);
   const fresh = defaultSpec(category);
 
-  if (!current || /rebuild|new website|start over|create a|build a/.test(lower)) {
+  if (startsFresh) {
     Object.assign(spec, fresh);
   }
 
